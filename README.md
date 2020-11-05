@@ -6,18 +6,21 @@ Andy points out that creating sub-units within XML/XSL is possible, but is a cha
 ## Existing XLingPaper Code
 The following two cases are what the current code looks like for annotated bibliographies in XLingPaper. 
 ### Case — Simple
-```
+```XML
 <annotationRef annotation="atNote" citation="rdeCharenceyHyacinthe1862LesDi"></annotationRef>
+
 ```
 ### Case — Complex
-```
+```XML
 <annotationRef XeLaTeXSpecial="some" annotation="atNote" citation="rdeCharenceyHyacinthe1862LesDi" cssSpecial="some2" xsl-foSpecial="some3"></annotationRef>
+
 ```
 
 ## Proposed XLingPaper Code
 The annotation block element provides all the attributes necessary for generating the annotation references needed for further processing.
 
 ### Case — AnnotationBlock
-```
+```XML
 <annotatedBibliographySection id="" excludeKeywords="" includeKeywords="" excludeLanguages="" includeLanguages="" excludeTypes="" includeTypes="" languageKeywordInteraction="additive||filter1||filter2" annotationType="" sortOrder="asc||dec||appearance" sortElement="pubDate||author||type||accessDate" numberEntries="false||perDocument||perSection||manual" startNumber=""></annotatedBibliographySection>
+
 ```
