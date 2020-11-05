@@ -20,26 +20,49 @@
             <xsl:for-each select="./refWork">
                 <xsl:variable name="currentWork" select="."/>
                 <xsl:variable name="currentWorkAnnotations" select="./annotations"/>
+                <xsl:variable name="keywordExclusion">
+                    <xsl:variable name="excludedWords" select="$annotatedBibliographySection/@excludeKeywords"/>
+                    <xsl:for-each select="$excludedWords">
+                        <xsl:variable name="currentBadWord" select="."/>
+                        <xsl:for-each select="$currentWork/keywords/keyword">
+                            <xsl:if test=".=$currentBadWord">
+                                <xsl:value-of>false</xsl:value-of>
+                            </xsl:if>
+                        </xsl:for-each>
+                    </xsl:for-each>
+                </xsl:variable>
+                <xsl:variable name="languageExclusion">
+                    <xsl:choose>
+                        <xsl:when test="0=0">false</xsl:when>
+                        <xsl:otherwise>true</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
                 <xsl:choose>
                     <xsl:when test="$annotatedBibliographySection/@includeKeywords">
                         <xsl:choose>
                             <xsl:when test="./keywords/keyword/text()">
                                 <xsl:for-each select="./keywords/keyword">
-                                    <xsl:if test="$annotatedBibliographySection/@includeKeywords=./text()">
-                                        <xsl:element name="annotationRef">
-                                            <xsl:attribute name="citation">
-                                                <xsl:value-of select="./../../@id"/>
-                                            </xsl:attribute>
-                                            <xsl:for-each select="$currentWorkAnnotations/annotation">
-                                                <xsl:if test="$annotatedBibliographySection/@includeTypes=./@annotype">
-                                                    <xsl:attribute name="annotation">
-                                                        <xsl:value-of select="./[@annotype]"/>
-                                                    </xsl:attribute>
-                                                </xsl:if>
-                                            </xsl:for-each>
-                                     
-                                        </xsl:element>
-                                    </xsl:if>
+                                    <xsl:choose>
+                                        <xsl:when test="$annotatedBibliographySection/@includeKeywords=./text() and not($keywordExclusion='false')">
+                                            <!-- An Annotation would get duplicated if the keyword existed twice -->
+                                            <xsl:element name="annotationRef">
+                                                <xsl:attribute name="citation">
+                                                    <xsl:value-of select="$currentWork/@id"/>
+                                                </xsl:attribute>
+                                                <xsl:for-each select="$currentWorkAnnotations/annotation">
+                                                    <xsl:if test="$annotatedBibliographySection/@includeTypes=./@annotype">
+                                                        <xsl:attribute name="annotation">
+                                                            <xsl:value-of select="./[@annotype]"/>
+                                                        </xsl:attribute>
+                                                    </xsl:if>
+                                                </xsl:for-each>
+                                                
+                                            </xsl:element>
+                                        </xsl:when>
+                                    </xsl:choose>
+                                    
+                                    
+                                    
                                 </xsl:for-each>
                             </xsl:when>
                             <xsl:otherwise/>
