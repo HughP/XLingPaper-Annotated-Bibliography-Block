@@ -16,7 +16,7 @@
         <xsl:variable name="refs" select="//references"/>
         <xsl:for-each select="$refs/refAuthor">
            <!-- <xsl:sort select="lower-case(@name)" order="ascending"/>-->
-            <!-- This sort is a stopgap, it will need to handle "de" and "von" better. -->
+            <!-- This sort is a stopgap, it will need to handle "de", "du", "von", "van", "von der", and "van der" better. And it needs to be set by a variable. -->
             <xsl:for-each select="./refWork">
                 <xsl:variable name="currentWork" select="."/>
                 <xsl:variable name="currentWorkAnnotations" select="./annotations"/>

@@ -3,7 +3,7 @@
 <lingPaper>
    <section1 id="sCase3">
       <secTitle>Case 3</secTitle>
-      <p>This one Hugh Defined</p>
+      <p>Let's get all the citations with the Keyword "Nepal" and non of the citations with the Keyword "Exclude".</p>
       <annotatedBibliographySection id="case3" excludeKeywords="Exclude" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
          languageKeywordInteraction="additive" annotationType="" sortOrder="asc" sortElement="author"
@@ -12,7 +12,7 @@
    </section1>
    <section1 id="sCase2">
       <secTitle>Matthew's Annotation</secTitle>
-      <p>This is Matthew's testbed.</p>
+      <p>Let's get all the citations with the Keyword "Nepal" and if they have an annotation show the annotation that matches "atNote".</p>
       <annotatedBibliographySection id="case2" includeTypes="atNote" includeKeywords="Nepal"/>
    </section1>
    <section1 id="sCase1">
@@ -26,7 +26,7 @@
    </section1>
    <section1 id="sCase0">
       <secTitle>My Annotation</secTitle>
-      <p>This one is fake.</p>
+      <p>This is a meta example.</p>
       <annotatedBibliographySection id="case0" excludeKeywords="" includeKeywords="" excludeLanguages=""
          includeLanguages="" excludeTypes="" includeTypes=""
          languageKeywordInteraction="additive||filter1||filter2" annotationType=""
@@ -52,7 +52,6 @@
                <annotation annotype="atNote" id="anGrimes1974ChepaNote1">No Keywords</annotation>
                <annotation annotype="atNote2" id="anGrimes1974ChepaNote2">No Keywords</annotation>
             </annotations>
-            
          </refWork> 
         <refWork id="rPaterson2019" showiso639-3codes="no">
             <refDate>2019</refDate>
@@ -69,7 +68,6 @@
                <keywords>
                   <keyword>Education</keyword>
                </keywords>
-            
          </refWork>
          <refWork id="rPaterson2020" showiso639-3codes="no">
             <refDate>2020</refDate>
@@ -89,7 +87,6 @@
                <keywords>
                   <keyword>Education</keyword>
                </keywords>
-            
          </refWork>
       </refAuthor>
       <refAuthor citename="Grimes" name="Grimes, Barbara F" showAuthorName="yes">
