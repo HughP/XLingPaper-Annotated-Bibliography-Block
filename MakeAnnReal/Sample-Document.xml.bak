@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE references PUBLIC "-//XMLmind//DTD XLingPap//EN" "XLingPap.dtd">
 <lingPaper>
-   <section1 id="sCase3">
-      <secTitle>Case 3</secTitle>
-      <p>This one Hugh Defined</p>
-      <annotatedBibliographySection id="case3" excludeKeywords="Exclude" includeKeywords="Nepal"
-         excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
-         languageKeywordInteraction="additive" annotationType="" sortOrder="asc" sortElement="author"
-         numberEntries="false" startNumber="" solution="2 grimes, then sort by date"/>
-      <p></p>
-   </section1>
-   <section1 id="sCase2">
+   <section1 id="sCase0">
       <secTitle>Matthew's Annotation</secTitle>
       <p>This is Matthew's testbed.</p>
       <annotatedBibliographySection id="case2" includeTypes="atNote" includeKeywords="Nepal"/>
@@ -18,7 +9,7 @@
    <section1 id="sCase1">
       <secTitle>Case 1</secTitle>
       <p>This one Hugh Defined</p>
-      <annotatedBibliographySection id="case1" excludeKeywords="" includeKeywords="Nepal"
+      <annotatedBibliographySection id="case1" excludeKeywords="Exclude" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
          languageKeywordInteraction="additive" annotationType="" sortOrder="asc" sortElement="author"
          numberEntries="false" startNumber="" solution="2 grimes, then sort by date"/>
@@ -47,12 +38,10 @@
                <url>https://example.com</url>
                <dateAccessed>2020-10-07 06:52:21</dateAccessed>
                <iso639-3code>cdm</iso639-3code>
-            </article>
             <annotations>
                <annotation annotype="atNote" id="anGrimes1974ChepaNote1">No Keywords</annotation>
-               <annotation annotype="atNote2" id="anGrimes1974ChepaNote2">No Keywords</annotation>
             </annotations>
-            
+            </article>
          </refWork> 
         <refWork id="rPaterson2019" showiso639-3codes="no">
             <refDate>2019</refDate>
