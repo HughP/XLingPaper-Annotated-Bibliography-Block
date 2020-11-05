@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE references PUBLIC "-//XMLmind//DTD XLingPap//EN"
+"XLingPap.dtd">
+<references
+><refAuthor
+citename="Grimes"
+name="Grimes, Barbara F"
+showAuthorName="yes"
+><refWork
+id="rGrimes1974Chepa"
+showiso639-3codes="no"
+><refDate
+>1974</refDate
+><refTitle
+>Chepang</refTitle
+><collection
+><collEd
+plural="no"
+>Barbara F Grimes</collEd
+><collTitle
+>Ethnologue</collTitle
+><edition
+>8</edition
+><collPages
+>293</collPages
+><location
+>Huntington Beach, California</location
+><publisher
+>Wycliffe Bible Translators</publisher
+></collection
+><annotations
+><annotation
+annotype="atNote"
+id="anGrimes1974ChepaNote1"
+>OCLC: 1047353</annotation
+></annotations
+><keywords
+><keyword
+>Nepal</keyword
+></keywords
+></refWork
+><refWork
+id="rGrimes1970Chepa"
+showiso639-3codes="no"
+><refDate
+>1970</refDate
+><refTitle
+>Chepang</refTitle
+><collection
+><collEd
+plural="no"
+>Barbara F Grimes</collEd
+><collTitle
+>Ethnologue</collTitle
+><edition
+>7</edition
+><collPages
+>127</collPages
+><location
+>Huntington Beach, California</location
+><publisher
+>Wycliffe Bible Translators</publisher
+><comment
+>Some how editions did not come over, and neither did page numbers.</comment
+></collection
+><annotations
+><annotation
+annotype="atNote"
+id="anTherewasnoauthorforthiswork1970ChepaNote1"
+>OCLC: 1047353</annotation
+></annotations
+><keywords
+><keyword
+>Nepal</keyword
+><keyword
+>Education</keyword
+></keywords
+></refWork
+></refAuthor
+><refAuthor
+citename="de Charencey"
+name="de Charencey, Hyacinthe"
+><refWork
+id="rdeCharenceyHyacinthe1862LesDi"
+showiso639-3codes="no"
+><refDate
+>1862</refDate
+><refTitle
+>Les Dialectes Du Népaul</refTitle
+><article
+><jTitle
+>Revue Orientale et Américaine</jTitle
+><jVol
+>7</jVol
+><jPages
+>57-58</jPages
+><url
+>https://gallica.bnf.fr/ark:/12148/bpt6k9680422f/f69.image.r=chepang</url
+></article
+><annotations
+><annotation
+annotype="atNote"
+id="andeCharenceyHyacinthe1862LesDiNote1"
+>&lt;p&gt;Summary of known languages of Nepal at the time.&lt;/p&gt;</annotation
+></annotations
+><keywords
+><keyword
+>Citation_complete_hp3</keyword
+><keyword
+>ISO-639-3_fra_writtenIn</keyword
+><keyword
+>Linguistics</keyword
+><keyword
+>Tibet</keyword
+><keyword
+>Education</keyword
+></keywords
+></refWork
+><refWork
+id="rdeCharenceyHyacinthe1885Séanc"
+showiso639-3codes="no"
+><refDate
+>1885</refDate
+><refTitle
+>Séance Du 30 Mai 1885</refTitle
+><article
+><jTitle
+>Bulletin de la Société de linguistique de Paris</jTitle
+><jVol
+>28</jVol
+><jPages
+>L–LI</jPages
+><url
+>https://gallica.bnf.fr/ark:/12148/bpt6k32146n/f55.item.r=chepang</url
+><keywords
+><keyword
+>Tibet</keyword
+></keywords
+></article
+></refWork
+><refWork
+id="rdeCharenceyHyacinthe1885Varié"
+showiso639-3codes="no"
+><refDate
+>1885</refDate
+><refTitle
+>Variétés: A Quelle Souche Se Rattachent Les Langues Du Caucase?</refTitle
+><article
+><jTitle
+>Bulletin de la Société de linguistique de Paris</jTitle
+><jVol
+>28</jVol
+><jPages
+>LXII–LXIX</jPages
+><url
+>https://gallica.bnf.fr/ark:/12148/bpt6k32146n/f67.item.r=chepang#</url
+><comment
+>In MODS transition, non numeric page numbers are not getting transferred. Roman Numerals are lost.</comment
+></article
+></refWork
+></refAuthor
+><refAuthor
+citename="von Nebesky-Wojkowitz"
+name="von Nebesky-Wojkowitz, René"
+><refWork
+id="rvonNebeskyWojkowitzRené1959Kusun"
+showiso639-3codes="no"
+><refDate
+>1959</refDate
+><refTitle
+>Kusunda and Chepang: Notes on two little-known tribes of Nepal</refTitle
+><article
+><jTitle
+>Bulletin of the International Committee on Urgent Anthropological and Ethnological Research</jTitle
+><jVol
+>2</jVol
+><jPages
+>77-84</jPages
+><url
+>https://973c63ce-3086-49ea-bb9b-6f566a8e84d2.filesusr.com/ugd/e3da62_df8165d35d7043fb9df3dc12ee7f6421.pdf</url
+><dateAccessed
+>2020-10-07 06:52:21</dateAccessed
+><keywords
+><keyword
+>Education</keyword
+></keywords
+></article
+></refWork
+></refAuthor
+><refAuthor
+citename="Joshua Project"
+name="Joshua Project"
+><refWork
+id="rJoshuaProject2020Chepa"
+showiso639-3codes="no"
+><refDate
+>2020</refDate
+><refTitle
+>Chepang, Tsepang in Nepal</refTitle
+><webPage
+><publisher
+>Joshua Project</publisher
+><url
+>https://joshuaproject.net/people_groups/11322/NP</url
+><dateAccessed
+>2020-10-02 18:51:36</dateAccessed
+></webPage
+><annotations
+><annotation
+annotype="atAbstract"
+id="anJoshuaProject2020ChepaAbstract"
+>Joshua Project profile for the Chepang, Tsepang in Nepal</annotation
+></annotations
+><keywords
+><keyword
+>ISO-639-3_cdm</keyword
+><keyword
+>Secondary Source</keyword
+><keyword
+>Exclude</keyword
+><keyword
+>Nepal</keyword
+><keyword
+>Education</keyword
+></keywords
+></refWork
+></refAuthor
+><annotatedBibliographyTypes
+><annotatedBibliographyType
+id="atAbstract"
+>Abstract from Reource</annotatedBibliographyType
+><annotatedBibliographyType
+id="atNote"
+>Comments</annotatedBibliographyType
+><annotatedBibliographyType
+id="atItem"
+>Item specific note</annotatedBibliographyType
+><annotatedBibliographyType
+id="atOtherBibliographyID"
+>ID in another Bibliography</annotatedBibliographyType
+></annotatedBibliographyTypes
+></references
+>
