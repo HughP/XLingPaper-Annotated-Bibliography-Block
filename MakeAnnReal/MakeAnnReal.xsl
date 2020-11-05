@@ -10,22 +10,72 @@
         </xsl:copy>
     </xsl:template>
     <xsl:template match="annotatedBibliographySection[@id='case0']"/>
-        
+    <xsl:template match="backMatter"/>    
     <xsl:template match="annotatedBibliographySection">
         <xsl:variable name="annotatedBibliographySection" select="."/>
         <xsl:variable name="refs" select="//references"/>
         <xsl:for-each select="$refs/refAuthor">
-            <xsl:sort select="lower-case(@name)" order="ascending"/>
-            <!-- This is a stopgap, it will need to handle "de" and "von" better. -->
+           <!-- <xsl:sort select="lower-case(@name)" order="ascending"/>-->
+            <!-- This sort is a stopgap, it will need to handle "de" and "von" better. -->
             <xsl:for-each select="./refWork">
+                <xsl:variable name="currentWork" select="."/>
+                <xsl:variable name="currentWorkAnnotations" select="./annotations"/>
                 <xsl:choose>
+                    <xsl:when test="$annotatedBibliographySection/@includeKeywords">
+                        <xsl:choose>
+                            <xsl:when test="./keywords/keyword/text()">
+                                <xsl:for-each select="./keywords/keyword">
+                                    <xsl:if test="$annotatedBibliographySection/@includeKeywords=./text()">
+                                        <xsl:element name="annotationRef">
+                                            <xsl:attribute name="citation">
+                                                <xsl:value-of select="./../../@id"/>
+                                            </xsl:attribute>
+                                            <xsl:for-each select="$currentWorkAnnotations/annotation">
+                                                <xsl:if test="$annotatedBibliographySection/@includeTypes=./@annotype">
+                                                    <xsl:attribute name="annotation">
+                                                        <xsl:value-of select="./[@annotype]"/>
+                                                    </xsl:attribute>
+                                                </xsl:if>
+                                            </xsl:for-each>
+                                     
+                                        </xsl:element>
+                                    </xsl:if>
+                                </xsl:for-each>
+                            </xsl:when>
+                            <xsl:otherwise/>
+                        </xsl:choose>
+                        
+                        
+                        <!-- Filter -->
+                        <!-- if killKeywords match, kwCheck=False -->
+                        <!-- Compare, if keywords match, kwCheck=true -->
+                        <!-- If Keywords fail, kwCheck=false-->
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <!-- Show all -->
+                        <!-- kwCheck=true -->
+                    </xsl:otherwise>
+                </xsl:choose>
+                <xsl:choose>
+                    <xsl:when test="$annotatedBibliographySection/@includeLanguages">
+                        <!-- Filter -->
+                        <!-- if killLangs match, langCheck=False -->
+                        <!-- Compare, if langs match, langCheck=true -->
+                        <!-- If Keywords fail, langCheck=false-->
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <!-- Show all -->
+                        <!-- langCheck=true -->
+                    </xsl:otherwise>
+                </xsl:choose>
+                <!--<xsl:choose>
                     <xsl:when test="./keywords/keyword/text()">
                         <xsl:element name="annotationRef">
                             <xsl:attribute name="citation">
                                 <xsl:value-of select="./@id"/>
                             </xsl:attribute>
                             <xsl:for-each select="./annotations/annotation">
-                                <!-- This is a temporary equality hack, do a real "contains", deal with multiples in spec -->
+                                <!-\- This is a temporary equality hack, do a real "contains", deal with multiples in spec -\->
                                 <xsl:if test="$annotatedBibliographySection/@includeTypes=./@annotype">
                                     <xsl:attribute name="annotation">
                                         <xsl:value-of select="./[@annotype]"/>
@@ -35,7 +85,7 @@
                         </xsl:element>
                     </xsl:when>
                     <xsl:otherwise/>
-                </xsl:choose>
+                </xsl:choose>-->
             </xsl:for-each>
         </xsl:for-each>
         <!-- references/refAuthor/refWork/keywords/keyword -->
