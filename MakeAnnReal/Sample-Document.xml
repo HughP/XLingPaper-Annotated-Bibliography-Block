@@ -26,6 +26,59 @@
    </section1>
 <backMatter>   
    <references>
+     <refAuthor citename="Paterson" name="Paterson III, Hugh">
+         <refWork id="rPaterson2018" showiso639-3codes="no">
+            <refDate>2018</refDate>
+            <refTitle>Citation without Keywords but with ISO and annotations</refTitle>
+            <article>
+               <jTitle>Bulletin of the International Committee on Urgent Anthropological and
+                  Ethnological Research</jTitle>
+               <jVol>1</jVol>
+               <jPages>100</jPages>
+               <url>https://example.com</url>
+               <dateAccessed>2020-10-07 06:52:21</dateAccessed>
+               <iso639-3code>cdm</iso639-3code>
+            <annotations>
+               <annotation annotype="atNote" id="anGrimes1974ChepaNote1">No Keywords</annotation>
+            </annotations>
+            </article>
+         </refWork> 
+        <refWork id="rPaterson2019" showiso639-3codes="no">
+            <refDate>2019</refDate>
+            <refTitle>Citation with NO annotation</refTitle>
+            <article>
+               <jTitle>Bulletin of the International Committee on Urgent Anthropological and
+                  Ethnological Research</jTitle>
+               <jVol>2</jVol>
+               <jPages>200</jPages>
+               <url>https://example.com</url>
+               <dateAccessed>2020-10-07 06:52:21</dateAccessed>
+               <iso639-3code>cdm</iso639-3code>
+               <keywords>
+                  <keyword>Education</keyword>
+               </keywords>
+            </article>
+         </refWork>
+         <refWork id="rPaterson2020" showiso639-3codes="no">
+            <refDate>2020</refDate>
+            <refTitle>Citation with empty annotation</refTitle>
+            <article>
+               <jTitle>Bulletin of the International Committee on Urgent Anthropological and
+                  Ethnological Research</jTitle>
+               <jVol>3</jVol>
+               <jPages>300</jPages>
+               <url>https://example.com</url>
+               <dateAccessed>2020-10-07 06:52:21</dateAccessed>
+               <iso639-3code>cdm</iso639-3code>
+            <annotations>
+               <annotation annotype="atNote" id="anGrimes1974ChepaNote1"></annotation>
+            </annotations>
+               <keywords>
+                  <keyword>Education</keyword>
+               </keywords>
+            </article>
+         </refWork>
+      </refAuthor>
       <refAuthor citename="Grimes" name="Grimes, Barbara F" showAuthorName="yes">
          <refWork id="rGrimes1974Chepa" showiso639-3codes="no">
             <refDate>1974</refDate>
