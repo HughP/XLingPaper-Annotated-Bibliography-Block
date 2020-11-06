@@ -56,19 +56,13 @@
                                                         </xsl:attribute>
                                                     </xsl:if>
                                                 </xsl:for-each>
-                                                
                                             </xsl:element>
                                         </xsl:when>
                                     </xsl:choose>
-                                    
-                                    
-                                    
                                 </xsl:for-each>
                             </xsl:when>
                             <xsl:otherwise/>
                         </xsl:choose>
-                        
-                        
                         <!-- Filter -->
                         <!-- if killKeywords match, kwCheck=False -->
                         <!-- Compare, if keywords match, kwCheck=true -->
@@ -81,6 +75,7 @@
                 </xsl:choose>
                 <xsl:choose>
                     <xsl:when test="$annotatedBibliographySection/@includeLanguages">
+                        <!-- This filter needs to also exclude on the basis of exclude keywords and exclude languages. So, if there is an excludeKeyword then that applies, but then if there is also a exclude language also apply. And if there is an exclude type then that also applies. sense ISO638-3 codes are similar to keywords in that one can have more than one per citation, then this needs to act like keywords too. -->
                         <!-- Filter -->
                         <!-- if killLangs match, langCheck=False -->
                         <!-- Compare, if langs match, langCheck=true -->
@@ -113,5 +108,4 @@
         </xsl:for-each>
         <!-- references/refAuthor/refWork/keywords/keyword -->
     </xsl:template>
-    
 </xsl:stylesheet>

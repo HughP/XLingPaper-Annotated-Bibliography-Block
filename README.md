@@ -5,7 +5,7 @@ The goal is to be able to insert a “block” in XLingPaper and to have that bl
 Andy points out that creating sub-units within XML/XSL is possible, but is a challenge. By sub-units I mean something like the following with keywords: Keywords to include ("additive" and "or" logic e.g. `Education`, `Nepal` could be based on a second entity, `Education+Nepal or Education||Nepal` ) — I'm not sure how to describe `(Education+Nepal)||Tibet`, which is different from `Education+(Nepal||Tibet)`;
 ### This repo
 
-* you will find the current data file in `MakeAnnReal/Sample-Document.xml` you will find the transform we have started here `MakeAnnReal.xsl`.
+* One will find the current data file in `MakeAnnReal/Sample-Document.xml` you will find the transform we have started here `MakeAnnReal/MakeAnnReal.xsl`.
 
 ## Existing XLingPaper Code
 The following two cases are what the current code looks like for annotated bibliographies in XLingPaper. 
