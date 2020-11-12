@@ -21,7 +21,7 @@
       </ul>
       <annotatedBibliographySection id="case0" excludeKeywords="" includeKeywords="" excludeLanguages=""
          includeLanguages="" excludeTypes="" includeTypes=""
-         languageKeywordInteraction="additive||filter1||filter2" annotationType=""
+         languageKeywordInteraction="additive||filter1||filter2" annotationTypes=""
          sortOrder="asc||dec||appearance" sortElement="pubDate||author||type||accessDate"
          numberEntries="false||perDocument||perSection||manual" startNumber=""/>
    </section1>
@@ -31,42 +31,42 @@
       <p>In this use case we include the set of all citations with the keyword "Nepal" and the set of all the citations with the ISO639-3 code [cdm]. We know this to be true because the value of 'languageKeywordInteraction' is set to 'additive'.</p>
       <annotatedBibliographySection id="case1" excludeKeywords="" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
-         languageKeywordInteraction="additive" annotationType="" sortOrder="asc" sortElement="author"
+         languageKeywordInteraction="additive" annotationTypes="" sortOrder="asc" sortElement="author"
          numberEntries="false" startNumber="" />
-      <p>Solution should include: (Set of all items tagged "Nepal" – 3 items: Grimes1, Grimes2, and Joshua Project) and (Set of all items with the ISO value of "cdm" – 8 items: Citation without Keywords but with ISO and annotations, Citation with NO annotation, Citation with empty annotation, Grimes1, Grimes2, Les Dialectes Du Népaul, Variétés: A Quelle Souche Se Rattachent Les Langues Du Caucase?, Kusunda and Chepang: Notes on two little-known tribes of Nepal</p>
+      <p>Solution should include: (Set of all items tagged "Nepal" – 4 items: Grimes1, Grimes2, and Joshua Project,Citation with Double Keyword and with ISO and annotations) and (Set of all items with the ISO value of "cdm" – 9 items: Citation without Keywords but with ISO and annotations, Citation with NO annotation, Citation with empty annotation, Grimes1, Grimes2, Les Dialectes Du Népaul, Variétés: A Quelle Souche Se Rattachent Les Langues Du Caucase?, Kusunda and Chepang: Notes on two little-known tribes of Nepal, Citation with Double Keyword and with ISO and annotations</p>
    </section1>
    <section1 id="sCase2">
       <secTitle>Case 2</secTitle>
       <p>In this use case we include the set of all citations with the keyword "Nepal" which also have been specified with the ISO639-3 code [cdm]. We know this to be true because the value of 'languageKeywordInteraction' is set to 'filter'. These items are presented in acending order based on author's name.</p>
       <annotatedBibliographySection id="case2" excludeKeywords="" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
-         languageKeywordInteraction="filter" annotationType="" sortOrder="asc" sortElement="author"
+         languageKeywordInteraction="filter" annotationTypes="" sortOrder="asc" sortElement="author"
          numberEntries="false" startNumber="" />
-      <p>Solution should include: Grimes1, Grimes2</p>
+      <p>Solution should include: Grimes1, Grimes2, Citation with Double Keyword and with ISO and annotations</p>
    </section1>
    <section1 id="sCase6">
       <secTitle>Case 6</secTitle>
       <p>In contrast to Case 2, this case takes the same items and presents them in decending order by pubDate.</p>
       <annotatedBibliographySection id="case6" excludeKeywords="" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
-         languageKeywordInteraction="filter" annotationType="" sortOrder="dec" sortElement="pubDate"
+         languageKeywordInteraction="filter" annotationTypes="" sortOrder="dec" sortElement="pubDate"
          numberEntries="false" startNumber="" />
-      <p>Solution should include: Grimes1, Grimes2: **1970, 1974**</p>
+      <p>Solution should include: Grimes1, Grimes2, Citation with Double Keyword and with ISO and annotations: **1970, 1974, 2016**</p>
    </section1>
    <section1 id="sCase7">
       <secTitle>Case 7</secTitle>
       <p>In contrast to Case 2 and Case 6, this case takes the same items and presents them in default order of the document.</p>
       <annotatedBibliographySection id="case6" excludeKeywords="" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
-         languageKeywordInteraction="filter" annotationType="" sortOrder="appearance" sortElement=""
+         languageKeywordInteraction="filter" annotationTypes="" sortOrder="appearance" sortElement=""
          numberEntries="false" startNumber="" />
-      <p>Solution should include: Grimes1, Grimes2 ** 8th edn comes first, followed by the 7th**</p>
+      <p>Solution should include:Citation with Double Keyword and with ISO and annotations, Grimes1, Grimes2 ** 8th edn comes first, followed by the 7th**</p>
    </section1>
    <section1 id="sCase3">
       <secTitle>Single Annotation</secTitle>
       <p>Let's get all the citations with the Keyword "Nepal" and if they have an annotation show the annotation that matches "atNote".</p>
       <annotatedBibliographySection id="case3" annotationTypes="atNote" includeKeywords="Nepal"/>
-      <p>Solution should include: three items expected to be presented two of them have annotations, one of the two annotations is a space</p>
+      <p>Solution should include: four items expected to be presented three of them have annotations, one of the three annotations is a space</p>
    </section1>
    <section1 id="sCase4">
       <secTitle>Dual Annotation</secTitle>
@@ -80,14 +80,81 @@
       <p>This one is tricky to decide, because is the domain of the "Exclude" keyword, the applied combined set of "Nepal" and "cdm" or just "Nepal"?</p>
       <annotatedBibliographySection id="case5" excludeKeywords="Exclude" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
-         languageKeywordInteraction="additive" annotationType="" sortOrder="asc" sortElement="author"
+         languageKeywordInteraction="additive" annotationTypes="" sortOrder="asc" sortElement="author"
          numberEntries="false" startNumber="" />
       <p>Solution should include:</p>
+   </section1>
+   <section1 id="sCase6">
+      <secTitle>Two Keywords</secTitle>
+      <p>Let's try some sets of Keywords</p>
+      <annotatedBibliographySection id="case6" annotationTypes="atNote atAbstract" includeKeywords="Nepal, Education"/>
+      <p>Solution should include:</p>
+   </section1>
+   <section1 id="sCase7">
+      <secTitle>Two sets of one Keyword each</secTitle>
+      <p>Let's try some sets of Keywords</p>
+      <annotatedBibliographySection id="case7" annotationTypes="atNote atAbstract" includeKeywords="Nepal | Tibet"/>
+      <p>Solution should include:</p>
+   </section1>
+   </section1>
+   <section1 id="sCase8">
+      <secTitle>Double instance of Keyword</secTitle>
+      <p>Double instance of Keyword</p>
+      <annotatedBibliographySection id="case8" annotationTypes="atNote atAbstract" includeKeywords="Nepal"/>
+      <p>Solution should include: Does this include any citations twice? One of them has the keyword twice.</p>
+   </section1>
+   <section1 id="sCase9">
+      <secTitle>Case 9</secTitle>
+      <p>Exclude a language</p>
+      <annotatedBibliographySection id="case5" excludeKeywords="Exclude" includeKeywords="Nepal"
+         excludeLanguages="xsr" includeLanguages="cdm" excludeTypes="" includeTypes=""
+         languageKeywordInteraction="additive" annotationTypes="" sortOrder="asc" sortElement="author"
+         numberEntries="false" startNumber="" />
+      <p>Solution should exclude: ISO xsr</p>
    </section1>
 <backMatter>   
    <references>
      <refAuthor citename="Paterson" name="Paterson III, Hugh">
-         <refWork id="rPaterson2017" showiso639-3codes="no">
+<refWork id="rPaterson2015" showiso639-3codes="no">
+            <refDate>2015</refDate>
+            <refTitle>Citation excludable ISO and annotations</refTitle>
+            <article>
+               <jTitle>Bulletin of the International Committee on Urgent Anthropological and
+                  Ethnological Research</jTitle>
+               <jVol>1</jVol>
+               <jPages>100</jPages>
+               <url>https://example.com</url>
+               <dateAccessed>2020-10-07 06:52:21</dateAccessed>
+               <iso639-3code>cdm</iso639-3code>
+               <iso639-3code>xsr</iso639-3code>
+            </article>
+            <annotations>
+               <annotation annotype="atNote" id="anGrimes1974ChepaNote1">Some annotation</annotation>
+               <annotation annotype="atNote2" id="anGrimes1974ChepaNote2">Some annotation</annotation>
+            </annotations>
+         </refWork>  
+<refWork id="rPaterson2016" showiso639-3codes="no">
+            <refDate>2016</refDate>
+            <refTitle>Citation with Double Keyword and with ISO and annotations</refTitle>
+            <article>
+               <jTitle>Bulletin of the International Committee on Urgent Anthropological and
+                  Ethnological Research</jTitle>
+               <jVol>1</jVol>
+               <jPages>100</jPages>
+               <url>https://example.com</url>
+               <dateAccessed>2020-10-07 06:52:21</dateAccessed>
+               <iso639-3code>cdm</iso639-3code>
+            </article>
+               <keywords>
+                  <keyword>Nepal</keyword>
+                  <keyword>Nepal</keyword>
+               </keywords>
+            <annotations>
+               <annotation annotype="atNote" id="anGrimes1974ChepaNote1">Some annotation</annotation>
+               <annotation annotype="atNote2" id="anGrimes1974ChepaNote2">Some annotation</annotation>
+            </annotations>
+         </refWork>         
+<refWork id="rPaterson2017" showiso639-3codes="no">
             <refDate>2017</refDate>
             <refTitle>Citation with Keyword "Exclude"  with ISO and annotations</refTitle>
             <article>
@@ -235,10 +302,10 @@
                <jVol>28</jVol>
                <jPages>L–LI</jPages>
                <url>https://gallica.bnf.fr/ark:/12148/bpt6k32146n/f55.item.r=chepang</url>
+            </article>
                <keywords>
                   <keyword>Tibet</keyword>
                </keywords>
-            </article>
          </refWork>
          <refWork id="rdeCharenceyHyacinthe1885Varié" showiso639-3codes="no">
             <refDate>1885</refDate>
@@ -266,10 +333,10 @@
                <url>https://973c63ce-3086-49ea-bb9b-6f566a8e84d2.filesusr.com/ugd/e3da62_df8165d35d7043fb9df3dc12ee7f6421.pdf</url>
                <dateAccessed>2020-10-07 06:52:21</dateAccessed>
                <iso639-3code>cdm</iso639-3code>
+            </article>
                <keywords>
                   <keyword>Education</keyword>
                </keywords>
-            </article>
          </refWork>
       </refAuthor>
       <refAuthor citename="Joshua Project" name="Joshua Project">
