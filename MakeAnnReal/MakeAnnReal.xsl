@@ -20,14 +20,20 @@
                 <xsl:variable name="currentWorkAnnotations" select="./annotations"/>
 
                 <xsl:variable name="keywordExclusion">
+                    <xsl:text>0</xsl:text>
                     <xsl:variable name="excludedWords"
                         select="$annotatedBibliographySection/@excludeKeywords"/>
                     <xsl:for-each select="$excludedWords">
                         <xsl:variable name="currentBadWord" select="."/>
                         <xsl:for-each select="$currentWork/keywords/keyword">
-                            <xsl:if test=". = $currentBadWord">
-                                <xsl:value-of>false</xsl:value-of>
-                            </xsl:if>
+                            <xsl:choose>
+                                <xsl:when test=". = $currentBadWord">
+                                    <xsl:text>1</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:text>0</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:for-each>
                     </xsl:for-each>
                 </xsl:variable>
@@ -68,66 +74,15 @@
                     </xsl:choose>
                 </xsl:variable>
                 <xsl:choose>
-                    <xsl:when test="$annotatedBibliographySection/@includeKeywords">
-                        <xsl:choose>
-                            <xsl:when test="./keywords/keyword/text()">
-                                <xsl:for-each select="./keywords/keyword">
-                                    <xsl:choose>
-                                        <xsl:when
-                                            test="$annotatedBibliographySection/@includeKeywords = ./text() and not($keywordExclusion = 'false') and $keywordInclusion=boolean('true')">
-                                            <!-- An Annotation would get duplicated if the keyword existed twice -->
-                                            <xsl:element name="annotationRef">
-                                                <xsl:attribute name="citation">
-                                                  <xsl:value-of select="$currentWork/@id"/>
-                                                </xsl:attribute>
-                                                <xsl:for-each
-                                                  select="$currentWorkAnnotations/annotation">
-                                                  <xsl:if
-                                                  test="$annotatedBibliographySection/@includeTypes = ./@annotype">
-                                                  <xsl:attribute name="annotation">
-                                                  <xsl:value-of select="./[@annotype]"/>
-                                                  </xsl:attribute>
-                                                  </xsl:if>
-                                                </xsl:for-each>
-                                            </xsl:element>
-                                        </xsl:when>
-                                    </xsl:choose>
-                                </xsl:for-each>
-                            </xsl:when>
-                            <xsl:otherwise/>
-                        </xsl:choose>
-                        <!-- Filter -->
-                        <!-- if killKeywords match, kwCheck=False -->
-                        <!-- Compare, if keywords match, kwCheck=true -->
-                        <!-- If Keywords fail, kwCheck=false-->
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <!-- Show all -->
-                        <!-- kwCheck=true -->
-                    </xsl:otherwise>
-                </xsl:choose>
-                <xsl:choose>
-                    <xsl:when test="$annotatedBibliographySection/@includeLanguages">
-                        <!-- This filter needs to also exclude on the basis of exclude keywords and exclude languages. So, if there is an excludeKeyword then that applies, but then if there is also a exclude language also apply. And if there is an exclude type then that also applies. sense ISO638-3 codes are similar to keywords in that one can have more than one per citation, then this needs to act like keywords too. -->
-                        <!-- Filter -->
-                        <!-- if killLangs match, langCheck=False -->
-                        <!-- Compare, if langs match, langCheck=true -->
-                        <!-- If Keywords fail, langCheck=false-->
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <!-- Show all -->
-                        <!-- langCheck=true -->
-                    </xsl:otherwise>
-                </xsl:choose>
-                <!--<xsl:choose>
-                    <xsl:when test="./keywords/keyword/text()">
+                    <xsl:when test="$keywordExclusion = 0 and $keywordInclusion &gt; 0">
+                        <!-- An Annotation would get duplicated if the keyword existed twice -->
                         <xsl:element name="annotationRef">
                             <xsl:attribute name="citation">
-                                <xsl:value-of select="./@id"/>
+                                <xsl:value-of select="$currentWork/@id"/>
                             </xsl:attribute>
-                            <xsl:for-each select="./annotations/annotation">
-                                <!-\- This is a temporary equality hack, do a real "contains", deal with multiples in spec -\->
-                                <xsl:if test="$annotatedBibliographySection/@includeTypes=./@annotype">
+                            <xsl:for-each select="$currentWorkAnnotations/annotation">
+                                <xsl:if
+                                    test="$annotatedBibliographySection/@includeTypes = ./@annotype">
                                     <xsl:attribute name="annotation">
                                         <xsl:value-of select="./[@annotype]"/>
                                     </xsl:attribute>
@@ -135,40 +90,41 @@
                             </xsl:for-each>
                         </xsl:element>
                     </xsl:when>
-                    <xsl:otherwise/>
-                </xsl:choose>-->
+                </xsl:choose>
             </xsl:for-each>
         </xsl:for-each>
-        <!-- references/refAuthor/refWork/keywords/keyword -->
     </xsl:template>
     <xsl:template name="keywordInclusion">
         <xsl:param name="citationKeywords"/>
         <xsl:param name="annotationRefKeywords"/>
-        <xsl:variable name="filteredCitationKeywords">
-            <xsl:for-each select="$citationKeywords">
-                <xsl:variable name="currentKeyword" select="./text()"/>
-                <xsl:for-each select="$annotationRefKeywords/group">
-                    <xsl:if test="$currentKeyword = ./result/text()">
+        <xsl:for-each select="$annotationRefKeywords/group">
+            <xsl:variable name="currentRefGroup" select="./result"/>
+            <xsl:variable name="filteredCitationKeywords">
+                <xsl:for-each select="$citationKeywords/text()">
+                    <xsl:if test=". = $currentRefGroup/text()">
                         <xsl:element name="keyword">
-                            <xsl:value-of select="$currentKeyword"/>
+                            <xsl:value-of select="."/>
                         </xsl:element>
                     </xsl:if>
                 </xsl:for-each>
-            </xsl:for-each>
-        </xsl:variable>
-        <xsl:choose>
-            <xsl:when
-                test="count($filteredCitationKeywords/keyword) = count($annotationRefKeywords/group) and not($filteredCitationKeywords = '')">
-                <xsl:value-of select="boolean('true')"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="boolean('false')"/>
-            </xsl:otherwise>
-        </xsl:choose>
-
-
+            </xsl:variable>
+            <xsl:variable name="distinctCitationKeywords">
+                <xsl:for-each-group select="$filteredCitationKeywords" group-by="./text()">
+                    <xsl:sequence select="."/>
+                </xsl:for-each-group>
+            </xsl:variable>
+            <xsl:choose>
+                <xsl:when
+                    test="count($distinctCitationKeywords/keyword/text()) = count($currentRefGroup) and not($filteredCitationKeywords = '')">
+                    <xsl:text>1</xsl:text>
+                    <!-- dups fall in here -->
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:for-each>
         <!-- Need to handle duplicate keywords -->
-
     </xsl:template>
     <xsl:template name="tokenize">
         <xsl:param name="delimiter" select="'|'"/>

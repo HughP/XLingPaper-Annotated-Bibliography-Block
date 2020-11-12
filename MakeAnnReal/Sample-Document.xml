@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE references PUBLIC "-//XMLmind//DTD XLingPap//EN" "XLingPap.dtd">
 <lingPaper>
+   <section1 id="sCaseTest">
+      <secTitle>Testing Case</secTitle>
+      <annotatedBibliographySection id="casetest" excludeKeywords="Exclude" includeKeywords="Nepal|Tibet"/>
+   </section1>
    <section1 id="sCase0">
       <secTitle>Base</secTitle>
       <p>This is a meta example with some explanations.</p>
