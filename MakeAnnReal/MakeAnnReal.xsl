@@ -109,15 +109,19 @@
                 </xsl:for-each>
             </xsl:variable>
             <xsl:variable name="distinctCitationKeywords">
-                <xsl:for-each-group select="$filteredCitationKeywords" group-by="./text()">
-                    <xsl:sequence select="."/>
-                </xsl:for-each-group>
+                <!-- Dedups Citation Keywords -->
+                <xsl:element name="keywords">
+                        <xsl:for-each-group select="$filteredCitationKeywords/keyword" group-by="text()">
+                            <xsl:element name="keyword">
+                            <xsl:copy-of select="current-group()[1]/text()"/>
+                            </xsl:element>
+                        </xsl:for-each-group>
+                </xsl:element>
             </xsl:variable>
             <xsl:choose>
                 <xsl:when
-                    test="count($distinctCitationKeywords/keyword/text()) = count($currentRefGroup) and not($filteredCitationKeywords = '')">
+                    test="count($distinctCitationKeywords/keywords/keyword/text()) = count($currentRefGroup) and not($filteredCitationKeywords = '')">
                     <xsl:text>1</xsl:text>
-                    <!-- dups fall in here -->
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:text>0</xsl:text>
