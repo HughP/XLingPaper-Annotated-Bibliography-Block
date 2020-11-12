@@ -3,7 +3,7 @@
 <lingPaper>
    <section1 id="sCase0">
       <secTitle>Base</secTitle>
-      <p>This is a meta example with some explenations.</p>
+      <p>This is a meta example with some explanations.</p>
       <p>With no options selected one would expect all items in the document's references section to be added in the annotated bibliography. But by default no anntations will be shown unless an annotation type is specified. If an annotation type is speicified which is not in the annotation type list then an error needs to be returned to the user. By default the entires should be ordered by the same order as is the setting for the regular References section of the document. And entries should be unnumbered.</p>
       <p>However, the following options are also expected:</p>
       <ul>
@@ -82,7 +82,7 @@
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
          languageKeywordInteraction="additive" annotationTypes="" sortOrder="asc" sortElement="author"
          numberEntries="false" startNumber="" />
-      <p>Solution should include:</p>
+      <p>Solution should include: All Citations from Case4 except JoshuaProject</p>
    </section1>
    <section1 id="sCase6">
       <secTitle>Two Keywords</secTitle>
@@ -95,7 +95,6 @@
       <p>Let's try some sets of Keywords</p>
       <annotatedBibliographySection id="case7" annotationTypes="atNote atAbstract" includeKeywords="Nepal | Tibet"/>
       <p>Solution should include:</p>
-   </section1>
    </section1>
    <section1 id="sCase8">
       <secTitle>Double instance of Keyword</secTitle>
