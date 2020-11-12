@@ -65,27 +65,48 @@
    <section1 id="sCase3">
       <secTitle>Single Annotation</secTitle>
       <p>Let's get all the citations with the Keyword "Nepal" and if they have an annotation show the annotation that matches "atNote".</p>
-      <annotatedBibliographySection id="case3" includeTypes="atNote" includeKeywords="Nepal"/>
-      <p>Solution should include: three items expected to of them have annotations, one of the annotations is a space</p>
+      <annotatedBibliographySection id="case3" annotationTypes="atNote" includeKeywords="Nepal"/>
+      <p>Solution should include: three items expected to be presented two of them have annotations, one of the two annotations is a space</p>
    </section1>
    <section1 id="sCase4">
       <secTitle>Dual Annotation</secTitle>
       <p>Let's get all the citations with the Keyword "Nepal" and if they have an annotation of either "atNote" or "atAbstract" show either (and in the case both exist, both) annotation(s).</p>
-      <annotatedBibliographySection id="case4" includeTypes="atNote atAbstract" includeKeywords="Nepal"/>
+      <annotatedBibliographySection id="case4" annotationTypes="atNote atAbstract" includeKeywords="Nepal"/>
       <p>Solution should include:</p>
    </section1>
    <section1 id="sCase5">
       <secTitle>Case 5</secTitle>
       <p>Let's get all the citations with the Keyword "Nepal" (less the ones with the keyword "Exclude" even if they happen to have the keyword "Nepal".</p>
+      <p>This one is tricky to decide, because is the domain of the "Exclude" keyword, the applied combined set of "Nepal" and "cdm" or just "Nepal"?</p>
       <annotatedBibliographySection id="case5" excludeKeywords="Exclude" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
          languageKeywordInteraction="additive" annotationType="" sortOrder="asc" sortElement="author"
-         numberEntries="false" startNumber="" solution="2 grimes, then sort by date"/>
+         numberEntries="false" startNumber="" />
       <p>Solution should include:</p>
    </section1>
 <backMatter>   
    <references>
      <refAuthor citename="Paterson" name="Paterson III, Hugh">
+         <refWork id="rPaterson2017" showiso639-3codes="no">
+            <refDate>2017</refDate>
+            <refTitle>Citation with Keyword "Exclude"  with ISO and annotations</refTitle>
+            <article>
+               <jTitle>Bulletin of the International Committee on Urgent Anthropological and
+                  Ethnological Research</jTitle>
+               <jVol>1</jVol>
+               <jPages>100</jPages>
+               <url>https://example.com</url>
+               <dateAccessed>2020-10-07 06:52:21</dateAccessed>
+               <iso639-3code>cdm</iso639-3code>
+            </article>
+               <keywords>
+                  <keyword>Exclude</keyword>
+               </keywords>
+            <annotations>
+               <annotation annotype="atNote" id="anGrimes1974ChepaNote1">Some annotation</annotation>
+               <annotation annotype="atNote2" id="anGrimes1974ChepaNote2">Some annotation</annotation>
+            </annotations>
+         </refWork>
          <refWork id="rPaterson2018" showiso639-3codes="no">
             <refDate>2018</refDate>
             <refTitle>Citation without Keywords but with ISO and annotations</refTitle>
