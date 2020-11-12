@@ -3,7 +3,7 @@
 <lingPaper>
    <section1 id="sCase0">
       <secTitle>Base</secTitle>
-      <p>This is a meta example.</p>
+      <p>This is a meta example with some explenations.</p>
       <p>With no options selected one would expect all items in the document's references section to be added in the annotated bibliography. But by default no anntations will be shown unless an annotation type is specified. If an annotation type is speicified which is not in the annotation type list then an error needs to be returned to the user. By default the entires should be ordered by the same order as is the setting for the regular References section of the document. And entries should be unnumbered.</p>
       <p>However, the following options are also expected:</p>
       <ul>
@@ -37,10 +37,28 @@
    </section1>
    <section1 id="sCase2">
       <secTitle>Case 2</secTitle>
-      <p>In this use case we include the set of all citations with the keyword "Nepal" which also have been specified with the ISO639-3 code [cdm]. We know this to be true because the value of 'languageKeywordInteraction' is set to 'filter'.</p>
+      <p>In this use case we include the set of all citations with the keyword "Nepal" which also have been specified with the ISO639-3 code [cdm]. We know this to be true because the value of 'languageKeywordInteraction' is set to 'filter'. These items are presented in acending order based on author's name.</p>
       <annotatedBibliographySection id="case2" excludeKeywords="" includeKeywords="Nepal"
          excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
          languageKeywordInteraction="filter" annotationType="" sortOrder="asc" sortElement="author"
+         numberEntries="false" startNumber="" />
+      <p>Solution should include:</p>
+   </section1>
+   <section1 id="sCase6">
+      <secTitle>Case 6</secTitle>
+      <p>In contrast to Case 2, this case takes the same items and presents them in decending order by pubDate.</p>
+      <annotatedBibliographySection id="case6" excludeKeywords="" includeKeywords="Nepal"
+         excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
+         languageKeywordInteraction="filter" annotationType="" sortOrder="dec" sortElement="pubDate"
+         numberEntries="false" startNumber="" />
+      <p>Solution should include:</p>
+   </section1>
+   <section1 id="sCase7">
+      <secTitle>Case 7</secTitle>
+      <p>In contrast to Case 2 and Case 6, this case takes the same items and presents them in default order of the document.</p>
+      <annotatedBibliographySection id="case6" excludeKeywords="" includeKeywords="Nepal"
+         excludeLanguages="" includeLanguages="cdm" excludeTypes="" includeTypes=""
+         languageKeywordInteraction="filter" annotationType="" sortOrder="appearance" sortElement=""
          numberEntries="false" startNumber="" />
       <p>Solution should include:</p>
    </section1>
